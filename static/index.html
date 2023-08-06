@@ -12,9 +12,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <script defer src="../dist/model.js"></script>
-    <script defer src="../dist/view.js"></script>
-    <script defer src="../dist/controller.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+    <script defer src="../dist/main.js"></script>
     <title>ToDo!</title>
 </head>
 
@@ -70,7 +71,7 @@
                     <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="newest-tab"
                         id="newest-pane">
                         <ul id="newest-content" class="list-group list-group-flush">
-                            
+
                         </ul>
                     </div>
 
@@ -137,6 +138,15 @@
         </li>
     </template>
 
+    <template id="tag-list-item-template">
+        <li class="list-group-item">
+            <h5><span class="badge text-white bg-secondary">Tag</span></h5>
+            <ul class="list-group">
+
+            </ul>
+        </li>
+    </template>
+
     <div class="modal fade" id="form-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="form-label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -147,25 +157,28 @@
                 </div>
                 <div class="modal-body">
                     <form class="form" id="item-form" onsubmit="return false">
-                        <input type="hidden" id="id" value="">
-                        <div class="mb-3">
-                            <label for="description">Description</label>
-                            <input id="description" class="form-control" type="text" placeholder="Describe your task"
-                                required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="tags">Tags</label>
-                            <input id="tags" class="form-control" type="text" name="tags"
-                                placeholder="tag1, tag2, tag3">
-                        </div>
-                        <div class="mb-3">
-                            <label for="date">Deadline</label>
-                            <input id="deadline" class="form-control" type="date" name="deadline">
-                        </div>
+                        <fieldset class="item-form-field">
+                            <input type="hidden" id="id" value="">
+                            <div class="mb-3">
+                                <label for="description">Description</label>
+                                <input id="description" class="form-control" type="text"
+                                    placeholder="Describe your task" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="tags">Tags</label>
+                                <input id="tags" class="form-control" type="text" name="tags"
+                                    placeholder="tag1, tag2, tag3">
+                            </div>
+                            <div class="mb-3">
+                                <label for="date">Deadline</label>
+                                <input id="deadline" class="form-control" type="date" name="deadline">
+                            </div>
+                        </fieldset>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="submit" form="item-form" value="submit">Save</button>
+                    <button class="btn btn-secondary item-form-field" type="submit" form="item-form"
+                        value="submit">Save</button>
                 </div>
             </div>
         </div>
@@ -183,9 +196,8 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-        crossorigin="anonymous"></script>
+
+
 
 </body>
 
